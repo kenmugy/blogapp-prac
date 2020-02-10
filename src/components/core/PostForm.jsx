@@ -42,12 +42,12 @@ class PostForm extends Component {
   render() {
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className='container'>
           <Input title={this.state.title} handleChange={this.handleChange} />
           <TextArea body={this.state.body} handleChange={this.handleChange} />
           <button className='btn'>Submit</button>
         </form>
-        <ul className='collection'>
+        {/* <ul className='collection'>
           {this.state.posts &&
             this.state.posts.map((post, i) => (
               <li key={i} className='collection-item orange'>
@@ -55,7 +55,7 @@ class PostForm extends Component {
                 <p>Body: {post.body}</p>
               </li>
             ))}
-        </ul>
+        </ul> */}
       </>
     );
   }
