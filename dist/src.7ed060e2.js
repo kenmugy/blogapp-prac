@@ -35706,7 +35706,7 @@ if ("development" !== "production") {
     style: _propTypes.default.object
   });
 }
-},{"react-router":"../node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"../node_modules/react/index.js","history":"../node_modules/history/esm/history.js","prop-types":"../node_modules/prop-types/index.js","tiny-warning":"../node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"../node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"../src/components/core/Input.jsx":[function(require,module,exports) {
+},{"react-router":"../node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"../node_modules/react/index.js","history":"../node_modules/history/esm/history.js","prop-types":"../node_modules/prop-types/index.js","tiny-warning":"../node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"../node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"../src/components/core/PostForm.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35718,183 +35718,43 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Input = function Input(_ref) {
-  var title = _ref.title,
-      handleChange = _ref.handleChange;
-  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
+var PostForm = function PostForm(_ref) {
+  var handleChange = _ref.handleChange,
+      handleSubmit = _ref.handleSubmit,
+      blog = _ref.blog;
+  console.log(blog);
+  return _react.default.createElement("div", null, _react.default.createElement("form", {
+    action: "/posts",
+    onSubmit: handleSubmit,
+    className: "container"
+  }, _react.default.createElement("div", {
     className: "input-field"
   }, _react.default.createElement("input", {
     id: "title",
     type: "text",
     name: "title",
     onChange: handleChange,
-    value: title
+    value: blog.title
   }), _react.default.createElement("label", {
     htmlFor: "title"
-  }, "Title")));
-};
-
-var _default = Input;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"../src/components/core/TextArea.jsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var TextArea = function TextArea(_ref) {
-  var body = _ref.body,
-      handleChange = _ref.handleChange;
-  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
+  }, "Title")), _react.default.createElement("div", {
     className: "input-field"
   }, _react.default.createElement("textarea", {
     name: "body",
     className: "materialize-textarea",
     id: "textarea",
     onChange: handleChange,
-    value: body
+    value: blog.body
   }), _react.default.createElement("label", {
     htmlFor: "textarea"
-  }, "Body")));
+  }, "Body")), _react.default.createElement("button", {
+    className: "btn"
+  }, "Submit")));
 };
-
-var _default = TextArea;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"../src/components/core/PostForm.jsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _Input = _interopRequireDefault(require("./Input"));
-
-var _TextArea = _interopRequireDefault(require("./TextArea"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var PostForm =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(PostForm, _Component);
-
-  function PostForm() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, PostForm);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(PostForm)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      blog: {
-        title: '',
-        body: ''
-      },
-      posts: [{
-        title: 'title 1',
-        body: 'body 1'
-      }]
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "handleChange", function (e) {
-      var _e$target = e.target,
-          name = _e$target.name,
-          value = _e$target.value;
-
-      _this.setState(_defineProperty({}, name, value));
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
-      e.preventDefault();
-
-      _this.setState(function (preState) {
-        var post = {
-          title: preState.title,
-          body: preState.body
-        };
-        var posts = [].concat(_toConsumableArray(preState.posts), [post]);
-        return {
-          body: '',
-          title: '',
-          posts: posts
-        };
-      });
-    });
-
-    return _this;
-  }
-
-  _createClass(PostForm, [{
-    key: "render",
-    value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("form", {
-        onSubmit: this.handleSubmit,
-        className: "container"
-      }, _react.default.createElement(_Input.default, {
-        title: this.state.title,
-        handleChange: this.handleChange
-      }), _react.default.createElement(_TextArea.default, {
-        body: this.state.body,
-        handleChange: this.handleChange
-      }), _react.default.createElement("button", {
-        className: "btn"
-      }, "Submit")));
-    }
-  }]);
-
-  return PostForm;
-}(_react.Component);
 
 var _default = PostForm;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Input":"../src/components/core/Input.jsx","./TextArea":"../src/components/core/TextArea.jsx"}],"../src/components/routes/Nav.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"../src/components/routes/Nav.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35922,7 +35782,7 @@ var Nav = function Nav() {
     to: "/"
   }, "Home")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
     to: "/post"
-  }, "Post")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+  }, "createPost")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
     to: "/posts"
   }, "Posts")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
     to: "/about"
@@ -35963,10 +35823,18 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Posts = function Posts() {
-  return _react.default.createElement("div", {
-    className: "card-panel pink"
-  }, _react.default.createElement("h3", null, "Posts"), _react.default.createElement("p", null, "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, distinctio! Rerum dolores officiis debitis tenetur, doloribus doloremque aliquid nisi nobis aliquam, unde cupiditate impedit quis, ipsum laudantium asperiores architecto vel?"));
+var Posts = function Posts(_ref) {
+  var posts = _ref.posts;
+  var posts2 = posts.map(function (_ref2) {
+    var id = _ref2.id,
+        title = _ref2.title,
+        body = _ref2.body;
+    return _react.default.createElement("li", {
+      key: id,
+      className: "card-panel purple accent-3 white-text"
+    }, _react.default.createElement("h3", null, title), _react.default.createElement("p", null, body));
+  });
+  return _react.default.createElement("ul", null, posts2);
 };
 
 var _default = Posts;
@@ -35999,7 +35867,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
@@ -36015,24 +35883,208 @@ var _About = _interopRequireDefault(require("./routes/About"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var App = function App() {
-  return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement(_Nav.default, null), _react.default.createElement("div", {
-    className: "container"
-  }, _react.default.createElement("h3", null, "Welcome to Bblog"), _react.default.createElement(_reactRouterDom.Switch, null, _react.default.createElement(_reactRouterDom.Route, {
-    path: "/",
-    exact: "true"
-  }, _react.default.createElement(_Home.default, null)), _react.default.createElement(_reactRouterDom.Route, {
-    path: "/posts"
-  }, _react.default.createElement(_Posts.default, null)), _react.default.createElement(_reactRouterDom.Route, {
-    path: "/about"
-  }, _react.default.createElement(_About.default, null)), _react.default.createElement(_reactRouterDom.Route, {
-    path: "/post"
-  }, _react.default.createElement(_PostForm.default, null)))));
-};
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var App =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(App, _Component);
+
+  function App() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, App);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(App)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      blog: {
+        title: '',
+        body: ''
+      },
+      posts: [{
+        id: 0,
+        title: 'title 1',
+        body: 'body 1'
+      }]
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleChange", function (e) {
+      var _e$target = e.target,
+          name = _e$target.name,
+          value = _e$target.value;
+
+      _this.setState({
+        blog: _objectSpread({}, _this.state.blog, _defineProperty({}, name, value))
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
+      e.preventDefault();
+
+      _this.setState(function (preState) {
+        var post = {
+          id: preState.posts.length,
+          title: preState.blog.title,
+          body: preState.blog.body
+        };
+        var posts = [].concat(_toConsumableArray(preState.posts), [post]);
+        return {
+          blog: {
+            body: '',
+            title: ''
+          },
+          posts: posts
+        };
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(App, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement(_Nav.default, null), _react.default.createElement("div", {
+        className: "container"
+      }, _react.default.createElement(_reactRouterDom.Switch, null, _react.default.createElement(_reactRouterDom.Route, {
+        path: "/",
+        exact: true
+      }, _react.default.createElement(_Home.default, null)), _react.default.createElement(_reactRouterDom.Route, {
+        path: "/posts"
+      }, _react.default.createElement(_Posts.default, {
+        posts: this.state.posts
+      })), _react.default.createElement(_reactRouterDom.Route, {
+        path: "/about"
+      }, _react.default.createElement(_About.default, null)), _react.default.createElement(_reactRouterDom.Route, {
+        path: "/post"
+      }, _react.default.createElement(_PostForm.default, {
+        handleChange: this.handleChange,
+        handleSubmit: this.handleSubmit,
+        blog: this.state.blog
+      })))));
+    }
+  }]);
+
+  return App;
+}(_react.Component);
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./core/PostForm":"../src/components/core/PostForm.jsx","./routes/Nav":"../src/components/routes/Nav.jsx","./routes/Home":"../src/components/routes/Home.jsx","./routes/Posts":"../src/components/routes/Posts.jsx","./routes/About":"../src/components/routes/About.jsx"}],"../src/index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./core/PostForm":"../src/components/core/PostForm.jsx","./routes/Nav":"../src/components/routes/Nav.jsx","./routes/Home":"../src/components/routes/Home.jsx","./routes/Posts":"../src/components/routes/Posts.jsx","./routes/About":"../src/components/routes/About.jsx"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/materialize-css/dist/css/materialize.css":[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -36041,10 +36093,12 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _App = _interopRequireDefault(require("./components/App"));
 
+require("materialize-css/dist/css/materialize.css");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _reactDom.default.render(_react.default.createElement(_App.default, null), document.getElementById('root'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/App":"../src/components/App.jsx"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/App":"../src/components/App.jsx","materialize-css/dist/css/materialize.css":"../node_modules/materialize-css/dist/css/materialize.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -36072,7 +36126,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54939" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50752" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -1,17 +1,13 @@
 import React from 'react';
 
-const Posts = () => {
-  return (
-    <div className='card-panel pink'>
-      <h3>Posts</h3>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea,
-        distinctio! Rerum dolores officiis debitis tenetur, doloribus doloremque
-        aliquid nisi nobis aliquam, unde cupiditate impedit quis, ipsum
-        laudantium asperiores architecto vel?
-      </p>
-    </div>
-  );
+const Posts = ({ posts }) => {
+  let posts2 = posts.map(({ id, title, body }) => (
+    <li key={id} className='card-panel purple accent-3 white-text'>
+      <h3>{title}</h3>
+      <p>{body}</p>
+    </li>
+  ));
+  return <ul>{posts2}</ul>;
 };
 
 export default Posts;

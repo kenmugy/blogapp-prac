@@ -1,64 +1,33 @@
-import React, { Component } from 'react';
-import Input from './Input';
-import TextArea from './TextArea';
+import React from 'react';
 
-class PostForm extends Component {
-  state = {
-    blog: {
-      title: '',
-      body: ''
-    },
-    posts: [
-      {
-        title: 'title 1',
-        body: 'body 1'
-      }
-    ]
-  };
-
-  handleChange = e => {
-    const { name, value } = e.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-    this.setState(preState => {
-      const post = {
-        title: preState.title,
-        body: preState.body
-      };
-      const posts = [...preState.posts, post];
-      return {
-        body: '',
-        title: '',
-        posts
-      };
-    });
-  };
-
-  render() {
-    return (
-      <>
-        <form onSubmit={this.handleSubmit} className='container'>
-          <Input title={this.state.title} handleChange={this.handleChange} />
-          <TextArea body={this.state.body} handleChange={this.handleChange} />
-          <button className='btn'>Submit</button>
-        </form>
-        {/* <ul className='collection'>
-          {this.state.posts &&
-            this.state.posts.map((post, i) => (
-              <li key={i} className='collection-item orange'>
-                <h5>Title: {post.title}</h5>
-                <p>Body: {post.body}</p>
-              </li>
-            ))}
-        </ul> */}
-      </>
-    );
-  }
-}
+const PostForm = ({ handleChange, handleSubmit, blog }) => {
+  console.log(blog);
+  return (
+    <div>
+      <form action='/posts' onSubmit={handleSubmit} className='container'>
+        <div className='input-field'>
+          <input
+            id='title'
+            type='text'
+            name='title'
+            onChange={handleChange}
+            value={blog.title}
+          />
+          <label htmlFor='title'>Title</label>
+        </div>
+        <div className='input-field'>
+          <textarea
+            name='body'
+            className='materialize-textarea'
+            id='textarea'
+            onChange={handleChange}
+            value={blog.body}></textarea>
+          <label htmlFor='textarea'>Body</label>
+        </div>
+        <button className='btn'>Submit</button>
+      </form>
+    </div>
+  );
+};
 
 export default PostForm;
